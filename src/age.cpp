@@ -2,7 +2,7 @@
 
 int   main( )
 {
-    std::size_t age{ };
+    std::size_t age{         };
 
     std::cout <<  "Enter your age: ";
        std::cin >>    age;
