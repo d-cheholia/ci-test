@@ -21,7 +21,7 @@ jobs:
       run: pip install universum
 
     - name: Install ClangFormat
-      run: apt install clang-format
+      run: sudo apt install clang-format
 
     - name: Universum
       run:
