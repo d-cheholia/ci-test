@@ -18,10 +18,15 @@ jobs:
         python-version: 3.8
 
     - name: Install dependency
-      run: pip install universum
+      run: |
+        pip install universum
+        pip install gitpython
+        
 
     - name: Install ClangFormat
-      run: sudo apt install clang-format
+      run: |
+        sudo apt-get install clang-format-10
+        sudo apt-get install git
 
     - name: Universum
       run:
