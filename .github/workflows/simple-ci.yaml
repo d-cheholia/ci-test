@@ -1,7 +1,10 @@
-name: Simple Check
+name: CI
 on:
   pull_request:
-    types: [opened, synchronize]
+    types:
+      - opened
+    branches:
+      - main
 
 jobs:
   universum_check:
