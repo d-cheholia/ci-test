@@ -5,6 +5,10 @@ on:
       - opened
     branches:
       - main
+  push:
+    branches:
+      - main
+      - feat/*
 
 jobs:
   universum_check:
