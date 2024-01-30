@@ -39,8 +39,6 @@ jobs:
         --ghactions-payload="@${{ github.event_path }}"
         --ghactions-token="${{ secrets.GITHUB_TOKEN }}"
         --report-to-review
-        --out-type github
-        --report-build-start
         --no-diff
         --fail-unsuccessful
 
