@@ -43,6 +43,7 @@ jobs:
         --fail-unsuccessful
         
     - name: Post Run
+      if: ${{ always() }}
       run: |
         ls
         cd ./code_report_results/
