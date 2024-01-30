@@ -41,6 +41,12 @@ jobs:
         --report-to-review
         --no-diff
         --fail-unsuccessful
+        
+    - name: Post Run
+      run: |
+        ls
+        cd ./code_report_results/
+        cat clang-format.json
 
     - name: Collect artifacts
       uses: actions/upload-artifact@v2
