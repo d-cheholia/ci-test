@@ -42,6 +42,7 @@ jobs:
         --out-type github
         --report-build-start
         --no-diff
+        --fail-unsuccessful
 
     - name: Collect artifacts
       uses: actions/upload-artifact@v2
