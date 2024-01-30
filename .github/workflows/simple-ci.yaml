@@ -46,7 +46,7 @@ jobs:
       if: ${{ always() }}
       run: |
         ls
-        artifacts
+        cd artifacts
         ls
 
     - name: Collect artifacts
