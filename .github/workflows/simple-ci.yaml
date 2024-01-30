@@ -9,6 +9,7 @@ on:
       - main
       - 'feat/*'
 
+
 jobs:
   universum_check:
     name: Universum check
@@ -34,18 +35,38 @@ jobs:
     - name: Universum
       run:
         python -u -m universum
-        --fail-unsuccessful
         --vcs-type="ghactions"
         --ghactions-payload="@${{ github.event_path }}"
         --ghactions-token="${{ secrets.GITHUB_TOKEN }}"
         --report-to-review
-        --no-archive
         --no-diff
-        --out-type github
-
+        --fail-unsuccessful
+        
+    - name: Post Run
+      if: ${{ always() }}
+      run: |
+        ls
+        cd artifacts
+        ls
+        
     - name: Collect artifacts
       uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
         name: artifacts
         path: artifacts
+        
+  cpp-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cpp-linter/cpp-linter-action@v2
+        id: linter
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          style: file
+          # The following value will only update a single comment
+          # in a pull request's thread. Set it to false to disable the comment.
+          # Set it to true to post a new comment (and delete the old comment).
+          thread-comments: ${{ github.event_name == 'pull_request' && 'update' }}
