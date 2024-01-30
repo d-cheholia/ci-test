@@ -2,9 +2,9 @@ name: CI
 on:
   pull_request:
     types:
-      - [opened, synchronize, reopened]
+      - opened, synchronize, reopened
     branches:
-      - [main, feat/*]
+      - main, feat/*
 
 jobs:
   universum_check:
@@ -38,6 +38,7 @@ jobs:
         --no-archive
         --no-diff
         --out-type github
+        --report-build-start
 
     - name: Collect artifacts
       uses: actions/upload-artifact@v2
