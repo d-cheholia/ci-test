@@ -2,9 +2,13 @@ name: CI
 on:
   pull_request:
     types:
-      - opened, synchronize, reopened
+      - opened
+      - synchronize
+      - reopened
     branches:
-      - main, feat/*
+      - main
+      - 'feat/*'
+
 
 jobs:
   universum_check:
