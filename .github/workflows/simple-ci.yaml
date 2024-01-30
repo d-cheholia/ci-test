@@ -41,7 +41,7 @@ jobs:
         --report-to-review
         --out-type github
         --report-build-start
-        
+        --no-diff
 
     - name: Collect artifacts
       uses: actions/upload-artifact@v2
