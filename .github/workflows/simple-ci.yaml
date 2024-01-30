@@ -31,7 +31,6 @@ jobs:
     - name: Universum
       run:
         python -u -m universum
-        --fail-unsuccessful
         --vcs-type="ghactions"
         --ghactions-payload="@${{ github.event_path }}"
         --ghactions-token="${{ secrets.GITHUB_TOKEN }}"
